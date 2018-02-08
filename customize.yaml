@@ -1,6 +1,8 @@
 switch.plug_158d00015c77a8:
-    friendly_name: 'Kichen backlight switch'
+    friendly_name: 'Kichen backlight'
 sensor.temperature_158d00019cf3f2:
     friendly_name: 'Bedroom temperature'
 sensor.humidity_158d00019cf3f2:
     friendly_name: 'Bedroom humidity'
+light.gateway_light_34ce0082a52d:
+    friendly_name: 'Gateway backlight'
