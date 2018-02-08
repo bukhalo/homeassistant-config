@@ -1,0 +1,14 @@
+# Kitchen backlight
+- id: kitchen_backlight
+  alias: 'Kitchen backlight'
+  hide_entity: true
+  trigger:
+    - platform: event
+      event_type: click
+      event_data:
+        entity_id: binary_sensor.switch_158d00018392c4
+        click_type: single   
+  action:
+    - service: switch.toggle
+      data:
+        entity_id: switch.plug_158d00015c77a8
