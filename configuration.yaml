@@ -52,6 +52,10 @@ map:
 # Track the sun
 sun:
 
+weather:
+  - platform: openweathermap
+    api_key: !secret owm_key  
+
 # Text to speech
 tts:
   - platform: google

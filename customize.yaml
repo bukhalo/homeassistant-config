@@ -4,5 +4,11 @@ sensor.temperature_158d00019cf3f2:
     friendly_name: 'Bedroom temperature'
 sensor.humidity_158d00019cf3f2:
     friendly_name: 'Bedroom humidity'
+sensor.owm_humidity:
+    friendly_name: 'Outdoor humidity'
+sensor.owm_cloud_coverage:
+    friendly_name: 'Cloud coverage'
+sensor.owm_temperature:
+    friendly_name: 'Outside temperature'
 light.gateway_light_34ce0082a52d:
     friendly_name: 'Gateway backlight'
