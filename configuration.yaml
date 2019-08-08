@@ -13,89 +13,109 @@ homeassistant:
   # Customization file
   customize: !include customize.yaml
 
-# Enables the frontend
-frontend:
+# todo: needs check after HA update
+# # Enables the frontend
+# frontend:
 
-# Enables configuration UI
-config:
+# todo: needs check after HA update
+# # Enables configuration UI
+# config:
 
-http:
-  # Secrets are defined in the file secrets.yaml
-  api_password: !secret http_password
-  # Uncomment this if you are using SSL/TLS, running in Docker container, etc.
-  # base_url: example.duckdns.org:8123
+# todo: needs check after HA update
+# http:
+#   # Secrets are defined in the file secrets.yaml
+#   api_password: !secret http_password
+#   # Uncomment this if you are using SSL/TLS, running in Docker container, etc.
+#   # base_url: example.duckdns.org:8123
 
-# Checks for available updates
-# Note: This component will send some information about your system to
-# the developers to assist with development of Home Assistant.
-# For more information, please see:
-# https://home-assistant.io/blog/2016/10/25/explaining-the-updater/
-updater:
-  # Optional, allows Home Assistant developers to focus on popular components.
-  # include_used_components: true
+# todo: needs check after HA update
+# # Checks for available updates
+# # Note: This component will send some information about your system to
+# # the developers to assist with development of Home Assistant.
+# # For more information, please see:
+# # https://home-assistant.io/blog/2016/10/25/explaining-the-updater/
+# updater:
+#   # Optional, allows Home Assistant developers to focus on popular components.
+#   # include_used_components: true  
+
+# Configure a default setup of Home Assistant (frontend, api, etc)
+default_config:
 
 # Discover some devices automatically
 discovery:
 
-# Allows you to issue voice commands from the frontend in enabled browsers
-conversation:
+# todo: needs check after HA update
+# # Allows you to issue voice commands from the frontend in enabled browsers
+# conversation:
 
-# Enables support for tracking state changes over time
-history:
+# todo: needs check after HA update
+# # Enables support for tracking state changes over time
+# history:
 
-# View all events in a logbook
-logbook:
+# todo: needs check after HA update
+# # View all events in a logbook
+# logbook:
 
-# Enables a map showing the location of tracked devices
-map:
+# todo: needs check after HA update
+# # Enables a map showing the location of tracked devices
+# map:
 
-# Track the sun
-sun:
+# todo: needs check after HA update
+# # Track the sun
+# sun:
 
-weather:
-  - platform: openweathermap
-    api_key: !secret owm_key  
+# todo: needs check after HA update
+# weather:
+#   - platform: openweathermap
+#     api_key: !secret owm_key  
 
 # Text to speech
 tts:
-  - platform: google
-  
+  - platform: google_translate
+
 # Xiaomi Gateway (Aqara)
 xiaomi_aqara:
   discovery_retry: 5
   gateways:
-    - key: !secret xiaomi_gateway_key
+    - key: !secret xiaomi_gateway_token  
 
-# Devices Tracking
-device_tracker:
-  - platform: icloud
-    username: !secret icloud_username
-    password: !secret icloud_password
+# todo: needs check after HA update
+# # Devices Tracking
+# device_tracker:
+#   - platform: icloud
+#     username: !secret icloud_username
+#     password: !secret icloud_password
 
 wake_on_lan: # enables `wake_on_lan` domain
 
-media_player:
-  - platform: webostv
-    host: 192.168.0.12
-    name: bedroom_tv
-    timeout: 5
-    filename: webostv.conf
-    turn_on_action:
-      service: wake_on_lan.send_magic_packet
-      data:
-        mac: !secret bedroom_tv_mac
+# todo: needs check after HA update
+# media_player:
+#   - platform: webostv
+#     host: 192.168.0.12
+#     name: bedroom_tv
+#     timeout: 5
+#     filename: webostv.conf
+#     turn_on_action:
+#       service: wake_on_lan.send_magic_packet
+#       data:
+#         mac: !secret bedroom_tv_mac
 
-twilio:
-  account_sid: !secret twilio_account_sid
-  auth_token: !secret twilio_auth_token
-              
-notify:
-  - name: Twilio
-    platform: twilio_sms
-    from_number: !secret twilio_from_number
+# todo: needs check after HA update
+# twilio:
+#   account_sid: !secret twilio_account_sid
+#   auth_token: !secret twilio_auth_token
+
+# todo: needs check after HA update         
+# notify:
+#   - name: Twilio
+#     platform: twilio_sms
+#     from_number: !secret twilio_from_number
 
 # Cloud
 cloud:
+
+# HomeKit
+homekit:    
 
 group: !include groups.yaml
 automation: !include automations.yaml
