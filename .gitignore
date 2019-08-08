@@ -1,0 +1,17 @@
+# Secrets
+secrets.yaml
+
+# Logs
+home-assistant.log
+home-assistant_v2.db
+
+# Databases
+home-assistant_v2.db
+*.sqlite
+
+# Data stores
+.cloud
+.storage
+
+# Homekit state
+.homekit.state
