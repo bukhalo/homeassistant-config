@@ -1,15 +1,17 @@
-- platform: openweathermap
-  api_key: !secret owm_key
-  monitored_conditions:
-    - weather
-    - temperature
-    - wind_speed
-    - wind_bearing
-    - humidity
-    - pressure
-    - clouds
-    - rain
-    - snow
+- platform: yr
+
+# - platform: openweathermap
+#   api_key: !secret owm_key
+#   monitored_conditions:
+#     - weather
+#     - temperature
+#     - wind_speed
+#     - wind_bearing
+#     - humidity
+#     - pressure
+#     - clouds
+#     - rain
+#     - snow
 
 - platform: speedtest
   minute: 30
