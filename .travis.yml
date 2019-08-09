@@ -3,12 +3,11 @@ language: python
 python: "3.7"
 
 before_install:
-  # - touch fake_key.pem
-  mv ./secrets.travis.yaml ./secrets.yaml
+  mv ./config/secrets.travis.yaml ./config/secrets.yaml
 
 install:
   - pip3 install homeassistant
   - pip3 install colorlog
 
 script:
-  - hass -c . --script check_config --info all
+  - hass -c ./config --script check_config --info all
