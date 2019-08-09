@@ -1,0 +1,15 @@
+jobs:
+  build:
+    runs-on: ubuntu-16.04
+    strategy:
+      matrix:
+        python: [ '2.x', '3.x', 'pypy3' ]
+    name: Python ${{ matrix.python }} sample
+    steps:
+      - uses: actions/checkout@master
+      - name: Setup python
+        uses: actions/setup-python@v1
+        with:
+          version: ${{ matrix.python }}
+          architecture: x64
+      - run: python my_script.py
