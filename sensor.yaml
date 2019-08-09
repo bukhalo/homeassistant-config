@@ -13,17 +13,9 @@
 #     - rain
 #     - snow
 
-- platform: speedtest
-  minute: 30
-  hour:
-    - 0
-    - 3
-    - 6
-    - 9
-    - 12
-    - 15
-    - 18
-    - 21
+- platform: speedtestdotnet
+  scan_interval:
+    minutes: 30
   monitored_conditions:
     - ping
     - download
