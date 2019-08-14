@@ -6,6 +6,6 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-    - uses: homeassistant/home-assistant
+    - uses: docker://homeassistant/home-assistant:0.97.2
     - name: Build the Docker image
       run: hass -c ./config --script check_config --info all
