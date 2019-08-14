@@ -1,0 +1,11 @@
+name: Validate Home Assistant config
+
+on: [push]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: homeassistant/home-assistant
+    - name: Build the Docker image
+      run: hass -c ./config --script check_config --info all
