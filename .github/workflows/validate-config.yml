@@ -7,7 +7,7 @@ jobs:
     steps:
     - uses: actions/checkout@v1
     - name: Validate HASS config
-      users: docker://homeassistant/home-assistant:0.97.2
+      uses: docker://homeassistant/home-assistant:0.97.2
       run: |
         mv ./config/secrets.travis.yaml ./config/secrets.yaml
         python -m homeassistant --config config --script check_config --info all
