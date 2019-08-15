@@ -1,8 +1,8 @@
-name: Validate HASS config
+name: Tests
 on: [push]
 
 jobs:
-  build:
+  test:
 
     runs-on: ubuntu-latest
     steps:
