@@ -9,4 +9,4 @@ jobs:
       uses: actions/checkout@v1
     - name: Validate HASS config
       uses: docker://homeassistant/home-assistant:0.97.2
-      run: python -m homeassistant --config config --script check_config --info all
+      # run: python -m homeassistant --config config --script check_config --info all
