@@ -20,4 +20,4 @@ jobs:
         pip install homeassistant colorlog
     - name: Validate HASS config 
       run: |
-        python -m homeassistant --config ./config --script check_config --info all
+        python -m homeassistant --config config --script check_config --info all
