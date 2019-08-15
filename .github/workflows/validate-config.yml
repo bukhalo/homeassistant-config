@@ -1,3 +1,6 @@
+name: Validate HASS config
+on: [push]
+
 jobs:
   build:
 
