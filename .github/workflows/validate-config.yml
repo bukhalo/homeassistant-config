@@ -5,7 +5,8 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v1
+    - name: Clone repository
+      uses: actions/checkout@v1
     - name: Validate HASS config
       uses: docker://homeassistant/home-assistant:0.97.2
       run: |
