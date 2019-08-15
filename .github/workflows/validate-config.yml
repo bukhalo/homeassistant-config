@@ -3,10 +3,20 @@ on: [push]
 
 jobs:
   build:
+
     runs-on: ubuntu-latest
     steps:
     - name: Clone repository
       uses: actions/checkout@v1
-    - name: Validate HASS config
-      uses: docker://homeassistant/home-assistant:0.97.2
-      # run: python -m homeassistant --config config --script check_config --info all
+    - name: Setup Python  
+      uses: actions/setup-python@v1
+      with:
+        python-version: 3.7
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install homeassistant colorlog
+    - name: Validate HASS config 
+      run: |
+        mv ./config/secrets.travis.yaml ./config/secrets.yaml
+        python -m homeassistant --config config --script check_config --info all
