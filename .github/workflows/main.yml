@@ -1,9 +1,9 @@
-name: Tests
+name: Test config
 
 on: [push]
 
 jobs:
-  Validate_Config:
+  tests:
     runs-on: ubuntu-latest
     steps:
     - name: Clone repository
@@ -16,7 +16,7 @@ jobs:
       run: |
         python -m pip install --upgrade pip
         pip install homeassistant colorlog
-    - name: Validate HASS config 
+    - name: Test config 
       run: |
         mv ./config/secrets.travis.yaml ./config/secrets.yaml
         python -m homeassistant --config config --script check_config --info all
