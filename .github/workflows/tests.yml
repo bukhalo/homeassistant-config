@@ -3,7 +3,7 @@ name: Tests
 on: [push]
 
 jobs:
-  Validate Config:
+  Validate_Config:
     runs-on: ubuntu-latest
     steps:
     - name: Clone repository
