@@ -1,9 +1,9 @@
 name: Tests
+
 on: [push]
 
 jobs:
-  test:
-
+  Validate Config:
     runs-on: ubuntu-latest
     steps:
     - name: Clone repository
