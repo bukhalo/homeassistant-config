@@ -4,7 +4,7 @@
   hide_entity: true
   trigger:
     - platform: event
-      event_type: click
+      event_type: xiaomi_aqara.click
       event_data:
         entity_id: binary_sensor.switch_158d00018392c4
         click_type: single   

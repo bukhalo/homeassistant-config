@@ -1,3 +1,5 @@
+binary_sensor.switch_158d00018392c4:
+    friendly_name: 'Kitchen backlight switch'
 switch.plug_158d00015c77a8:
     friendly_name: 'Kichen backlight'
 sensor.temperature_158d00019cf3f2:
