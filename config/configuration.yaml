@@ -103,6 +103,13 @@ media_player:
       sources:
         - AppleTV
 
+apple_tv:
+  - host: !secret bedroom_appletv_host
+    login_id: !secret bedroom_appletv_login_id
+    name: Bedroom Apple TV
+    start_off: true # Enable fake standby https://www.home-assistant.io/integrations/apple_tv/#my-apple-tv-turns-on-when-i-restart-home-assistant
+    credentials: !secret bedroom_appletv_credentials
+
 # todo: needs check after HA update
 # twilio:
 #   account_sid: !secret twilio_account_sid
