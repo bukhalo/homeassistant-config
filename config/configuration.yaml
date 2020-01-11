@@ -88,28 +88,35 @@ xiaomi_aqara:
 
 wake_on_lan: # enables `wake_on_lan` domain
 
-# todo: needs check after HA update
-# media_player:
-#   - platform: webostv
-#     host: 192.168.0.12
-#     name: bedroom_tv
-#     timeout: 5
-#     filename: webostv.conf
-#     turn_on_action:
-#       service: wake_on_lan.send_magic_packet
-#       data:
-#         mac: !secret bedroom_tv_mac
+# Media players
+media_player:
+  - platform: webostv
+    host: !secret bedroom_tv_host
+    name: bedroom_tv
+    timeout: 5
+    filename: webostv.conf
+    turn_on_action:
+      service: wake_on_lan.send_magic_packet
+      data:
+        mac: !secret bedroom_tv_mac
+    customize:
+      sources:
+        - AppleTV
 
 # todo: needs check after HA update
 # twilio:
 #   account_sid: !secret twilio_account_sid
 #   auth_token: !secret twilio_auth_token
-
-# todo: needs check after HA update         
-# notify:
-#   - name: Twilio
-#     platform: twilio_sms
-#     from_number: !secret twilio_from_number
+       
+notify:
+  # todo: needs check after HA update
+  # - name: Twilio
+  #   platform: twilio_sms
+  #   from_number: !secret twilio_from_number
+  - name: Bedroom TV
+    platform: webostv
+    host: !secret bedroom_tv_host
+    filename: webostv.conf
 
 # Cloud
 cloud:
