@@ -1,3 +1,5 @@
+media_player.bedroom_tv:
+    friendly_name: 'Bedroom TV'
 binary_sensor.switch_158d00018392c4:
     friendly_name: 'Kitchen backlight switch'
 switch.plug_158d00015c77a8:
@@ -8,9 +10,5 @@ sensor.humidity_158d00019cf3f2:
     friendly_name: 'Bedroom humidity'
 sensor.owm_humidity:
     friendly_name: 'Outdoor humidity'
-# sensor.owm_cloud_coverage:
-#     friendly_name: 'Cloud coverage'
-# sensor.owm_temperature:
-#     friendly_name: 'Outside temperature'
 light.gateway_light_34ce0082a52d:
     friendly_name: 'Gateway backlight'
