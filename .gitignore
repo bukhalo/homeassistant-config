@@ -15,3 +15,12 @@ home-assistant_v2.db
 
 # Homekit state
 .homekit.state
+
+# WebOS TV secrets
+webostv.conf
+
+# Text-to-speech files
+config/tts
+
+# Personal notes
+WORKFLOW.md
