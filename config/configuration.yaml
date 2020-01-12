@@ -1,94 +1,24 @@
 homeassistant:
-  # Name of the location where Home Assistant is running
   name: !secret home_name
-  # Location required to calculate the time the sun rises and sets
   latitude: !secret home_latitude
   longitude: !secret home_longitude
-  # Impacts weather/sunrise data (altitude above sea level in meters)
   elevation: 196
-  # metric for Metric, imperial for Imperial
   unit_system: metric
-  # Pick yours from here: http://en.wikipedia.org/wiki/List_of_tz_database_time_zones
   time_zone: Europe/Moscow
-  # Customization file
   customize: !include customize.yaml
 
-# todo: needs check after HA update
-# # Enables the frontend
-# frontend:
-
-# todo: needs check after HA update
-# # Enables configuration UI
-# config:
-
-# todo: needs check after HA update
-# http:
-#   # Secrets are defined in the file secrets.yaml
-#   api_password: !secret http_password
-#   # Uncomment this if you are using SSL/TLS, running in Docker container, etc.
-#   # base_url: example.duckdns.org:8123
-
-# todo: needs check after HA update
-# # Checks for available updates
-# # Note: This component will send some information about your system to
-# # the developers to assist with development of Home Assistant.
-# # For more information, please see:
-# # https://home-assistant.io/blog/2016/10/25/explaining-the-updater/
-# updater:
-#   # Optional, allows Home Assistant developers to focus on popular components.
-#   # include_used_components: true  
-
-# Configure a default setup of Home Assistant (frontend, api, etc)
 default_config:
-
-# Discover some devices automatically
 discovery:
-
-# todo: needs check after HA update
-# # Allows you to issue voice commands from the frontend in enabled browsers
-# conversation:
-
-# todo: needs check after HA update
-# # Enables support for tracking state changes over time
-# history:
-
-# todo: needs check after HA update
-# # View all events in a logbook
-# logbook:
-
-# todo: needs check after HA update
-# # Enables a map showing the location of tracked devices
-# map:
-
-# todo: needs check after HA update
-# # Track the sun
-# sun:
-
-# todo: needs check after HA update
-# weather:
-#   - platform: openweathermap
-#     api_key: !secret owm_key  
-
-# Text to speech
 tts:
   - platform: google_translate
 
-# Xiaomi Gateway (Aqara)
 xiaomi_aqara:
   discovery_retry: 5
   gateways:
     - key: !secret xiaomi_gateway_token  
 
-# todo: needs check after HA update
-# # Devices Tracking
-# device_tracker:
-#   - platform: icloud
-#     username: !secret icloud_username
-#     password: !secret icloud_password
+wake_on_lan:
 
-wake_on_lan: # enables `wake_on_lan` domain
-
-# Media players
 media_player:
   - platform: webostv
     host: !secret bedroom_tv_host
@@ -103,33 +33,27 @@ media_player:
       sources:
         - AppleTV
 
+# Does not work on tvOS 13 at the moment
+# https://community.home-assistant.io/t/apple-tv-component-does-not-work-on-tvos-13/120682/40
 apple_tv:
-  - host: !secret bedroom_appletv_host
-    login_id: !secret bedroom_appletv_login_id
-    name: Bedroom Apple TV
-    start_off: true # Enable fake standby https://www.home-assistant.io/integrations/apple_tv/#my-apple-tv-turns-on-when-i-restart-home-assistant
-    credentials: !secret bedroom_appletv_credentials
-
-# todo: needs check after HA update
-# twilio:
-#   account_sid: !secret twilio_account_sid
-#   auth_token: !secret twilio_auth_token
        
 notify:
-  # todo: needs check after HA update
-  # - name: Twilio
-  #   platform: twilio_sms
-  #   from_number: !secret twilio_from_number
   - name: Bedroom TV
     platform: webostv
     host: !secret bedroom_tv_host
     filename: webostv.conf
 
-# Cloud
 cloud:
 
-# HomeKit
 homekit:    
+
+speedtestdotnet:
+  scan_interval:
+    hours: 3
+  monitored_conditions:
+    - ping
+    - download
+    - upload
 
 group: !include groups.yaml
 automation: !include automations.yaml
