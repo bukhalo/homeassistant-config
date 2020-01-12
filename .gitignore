@@ -21,3 +21,6 @@ webostv.conf
 
 # Text-to-speech files
 config/tts
+
+# Personal notes
+WORKFLOW.md
