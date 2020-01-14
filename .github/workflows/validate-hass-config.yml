@@ -7,10 +7,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v1
-      - run: echo "::set-env name=HA_VERSION::$(cat config/.HA_VERSION)"
+      - run: echo "::set-env name=IMAGE_NAME::echo "homeassistant/home-assistant:$(cat config/.HA_VERSION)""
   main:
     runs-on: ubuntu-latest
-    container: homeassistant/home-assistant:${{ env.HA_VERSION }}
+    container: ${{ env.IMAGE_NAME }}
     steps:
     - uses: actions/checkout@v1
     - run: |
