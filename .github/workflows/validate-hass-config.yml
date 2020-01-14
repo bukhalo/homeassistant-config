@@ -9,7 +9,7 @@ jobs:
       - uses: actions/checkout@v1
       - id: vars
         run: echo "::set-env name=IMAGE_NAME::echo "homeassistant/home-assistant:$(cat config/.HA_VERSION)""
-      - uses: docker://${{ IMAGE_NAME }}
+      - uses: docker://homeassistant/home-assistant
         # run: |
         #   mv ./config/secrets.template.yaml ./config/secrets.yaml
         #   docker exec -it ubuntu_bash bash
