@@ -10,7 +10,7 @@ jobs:
       - run: echo "::set-env name=HA_VERSION::$(cat config/.HA_VERSION)"
   main:
     runs-on: ubuntu-latest
-    container: homeassistant/home-assistant:${{ HA_VERSION }}
+    container: homeassistant/home-assistant:${{ env.HA_VERSION }}
     steps:
     - uses: actions/checkout@v1
     - run: |
