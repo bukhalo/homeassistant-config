@@ -15,5 +15,5 @@ jobs:
         pip install homeassistant colorlog
     - name: Validation
       run: |
-        mv ./config/secrets.travis.yaml ./config/secrets.yaml
+        mv ./config/secrets.template.yaml ./config/secrets.yaml
         python -m homeassistant --config config --script check_config --info all
