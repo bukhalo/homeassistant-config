@@ -12,7 +12,7 @@ jobs:
       - uses: actions/checkout@v1
       - name: Move config template into configuration folder
         run: mv ./config/secrets.template.yaml ./config/secrets.yaml
-      - run: ::set-env name=HA_VERSION::$(echo homeassistant/home-assistant:$(cat config/.HA_VERSION))
+      - run: echo ::set-env name=HA_VERSION::$(echo homeassistant/home-assistant:$(cat config/.HA_VERSION))
       - name: Test
         run: echo $HA_VERSION
       - name: Validate Home Assistant config
