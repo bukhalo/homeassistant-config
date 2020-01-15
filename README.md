@@ -9,3 +9,5 @@ I regularly update my configuration files. If you like anything here, Be sure to
 https://github.com/CCOSTAN/Home-AssistantConfig
 
 https://github.com/arsaboo/homeassistant-config
+
+https://github.com/frenck/home-assistant-config
