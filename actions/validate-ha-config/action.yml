@@ -1,16 +1,16 @@
 # action.yml
-name: 'Hello World'
-description: 'Greet someone and record the time'
+name: 'Validate Home Assistant config'
+description: ''
 inputs:
-  who-to-greet:  # id of input
-    description: 'Who to greet'
+  ha-version:
+    description: 'Home Assistant Verison'
     required: true
-    default: 'World'
+    default: 'latest'
 outputs:
-  time: # id of output
+  time:
     description: 'The time we greeted you'
 runs:
   using: 'docker'
-  image: 'Dockerfile'
+  image: '${{ inputs.ha-version }}'
   args:
     - ${{ inputs.ha-version }}

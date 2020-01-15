@@ -18,4 +18,4 @@ jobs:
       - name: Validate Home Assistant config
         uses: ./actions/validate-ha-config
         with:
-          ha-version: $HA_VERSION
+          ha-version: echo $HA_VERSION
