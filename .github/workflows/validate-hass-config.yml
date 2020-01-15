@@ -1,12 +1,21 @@
-name: Validate Home Assistant config
+---
+name: Home Assistant CI
 
-on: [push]
+on:
+  push:
+  pull_request:
 
 jobs:
   main:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v1
-      - run: |
-          mv ./config/secrets.template.yaml ./config/secrets.yaml
-          docker run -it homeassistant/home-assistant:$(cat config/.HA_VERSION) -v ./config:/config --entrypoint python -m homeassistant --config config --script check_config --info all
+      - name: Move config template into configuration folder
+        run: mv ./config/secrets.template.yaml ./config/secrets.yaml
+      - run: ::set-env name=HA_VERSION::$(echo homeassistant/home-assistant:$(cat config/.HA_VERSION))
+      - name: Test
+        run: echo $HA_VERSION
+      - name: Validate Home Assistant config
+        uses: "docker://homeassistant/home-assistant:${{ env.HA_VERSION }}"
+        with:
+          args: python -m homeassistant --config ./config/ --script check_config --info all
