@@ -1,0 +1,56 @@
+---
+name: Home Assistant CI
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  home_assistant_stable:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Getting your configuration from GitHub
+        uses: actions/checkout@v1
+      - name: Move secrets template into configuration folder
+        run: mv ./config/secrets.template.yaml ./config/secrets.yaml
+      - name: Home Assistant Version
+        uses: "docker://homeassistant/home-assistant:stable"
+        with:
+          args: |
+            python -m homeassistant --version
+      - name: Home Assistant Check
+        uses: "docker://homeassistant/home-assistant:stable"
+        with:
+          args: python -m homeassistant --config ./config/ --script check_config --info all
+  home_assistant_beta:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Getting your configuration from GitHub
+        uses: actions/checkout@v1
+      - name: Move secrets template into configuration folder
+        run: mv ./config/secrets.template.yaml ./config/secrets.yaml
+      - name: Home Assistant Version
+        uses: "docker://homeassistant/home-assistant:beta"
+        with:
+          args: |
+            python -m homeassistant --version
+      - name: Home Assistant Check
+        uses: "docker://homeassistant/home-assistant:beta"
+        with:
+          args: python -m homeassistant --config ./config/ --script check_config --info all
+  home_assistant_dev:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Getting your configuration from GitHub
+        uses: actions/checkout@v1
+      - name: Move secrets template into configuration folder
+        run: mv ./config/secrets.template.yaml ./config/secrets.yaml
+      - name: Home Assistant Version
+        uses: "docker://homeassistant/home-assistant:dev"
+        with:
+          args: |
+            python -m homeassistant --version
+      - name: Home Assistant Check
+        uses: "docker://homeassistant/home-assistant:dev"
+        with:
+          args: python -m homeassistant --config ./config/ --script check_config --info all
