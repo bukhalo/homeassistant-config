@@ -13,4 +13,4 @@ runs:
   using: 'docker'
   image: 'docker://${{ inputs.ha-version }}'
   args:
-    - ${{ inputs.ha-version }}
+    - python -m homeassistant --config ./config/ --script check_config --info all
