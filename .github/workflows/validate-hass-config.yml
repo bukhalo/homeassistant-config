@@ -16,6 +16,6 @@ jobs:
       - name: Test
         run: echo $HA_VERSION
       - name: Validate Home Assistant config
-        uses: "docker://homeassistant/home-assistant:${{ env.HA_VERSION }}"
+        uses: ./actions/validate-ha-config
         with:
-          args: python -m homeassistant --config ./config/ --script check_config --info all
+          ha-version: $HA_VERSION
