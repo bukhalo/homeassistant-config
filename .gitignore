@@ -1,5 +1,5 @@
 # Secrets
-secrets.yaml
+config/secrets.yaml
 
 # Logs
 home-assistant.log
