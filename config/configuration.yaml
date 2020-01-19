@@ -19,29 +19,24 @@ xiaomi_aqara:
 
 wake_on_lan:
 
+webostv:
+  host: !secret bedroom_tv_host
+  name: bedroom_tv
+  turn_on_action:
+    service: wake_on_lan.send_magic_packet
+    data:
+      mac: !secret bedroom_tv_mac
+  customize:
+    sources:
+      - AppleTV
+
 media_player:
-  - platform: webostv
-    host: !secret bedroom_tv_host
-    name: bedroom_tv
-    timeout: 5
-    filename: webostv.conf
-    turn_on_action:
-      service: wake_on_lan.send_magic_packet
-      data:
-        mac: !secret bedroom_tv_mac
-    customize:
-      sources:
-        - AppleTV
 
 # Does not work on tvOS 13 at the moment
 # https://community.home-assistant.io/t/apple-tv-component-does-not-work-on-tvos-13/120682/40
 apple_tv:
        
 notify:
-  - name: Bedroom TV
-    platform: webostv
-    host: !secret bedroom_tv_host
-    filename: webostv.conf
 
 cloud:
 
