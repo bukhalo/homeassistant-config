@@ -1,11 +1,6 @@
-# - name: !secret LC1_NAME
-#   latitude: !secret LC1_LAT
-#   longitude: !secret LC1_LONG
-#   radius: 250
-#   icon: mdi:briefcase
-
-# - name: !secret LC2_NAME
-#   latitude: !secret LC2_LAT
-#   longitude: !secret LC2_LONG
-#   radius: 100
-#   icon: mdi:human-greeting
+# This will override the default home zone
+- name: Home
+  latitude: !secret home_latitude
+  longitude: !secret home_longitude
+  radius: 100
+  icon: mdi:account-multiple
