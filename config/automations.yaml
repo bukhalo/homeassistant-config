@@ -1,7 +1,6 @@
 # Kitchen backlight
 - id: kitchen_backlight
   alias: 'Kitchen backlight'
-  hide_entity: true
   trigger:
     - platform: event
       event_type: xiaomi_aqara.click
@@ -16,7 +15,6 @@
 # Night light turn on
 - id: night_light_turn_on
   alias: 'Night light turn on'
-  hide_entity: true
   trigger:
     - platform: state
       entity_id: binary_sensor.motion_sensor_158d00015a9c49
