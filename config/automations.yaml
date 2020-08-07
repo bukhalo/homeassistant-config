@@ -37,7 +37,6 @@
 # Night light turn off
 - id: night_light_turn_off
   alias: 'Night light turn off'
-  hide_entity: true
   trigger:
     - platform: state
       entity_id: binary_sensor.motion_sensor_158d00015a9c49

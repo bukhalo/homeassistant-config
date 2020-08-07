@@ -13,9 +13,7 @@ tts:
   - platform: google_translate
 
 xiaomi_aqara:
-  discovery_retry: 5
-  gateways:
-    - key: !secret xiaomi_gateway_token  
+  key: !secret xiaomi_gateway_token  
 
 wake_on_lan:
 
