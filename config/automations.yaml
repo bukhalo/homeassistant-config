@@ -1,16 +1,63 @@
-# Kitchen backlight
-- id: kitchen_backlight
-  alias: 'Kitchen backlight'
+# Kitchen backlight switch
+- id: kitchen_backlight_switch
+  alias: 'Kitchen backlight switch'
   trigger:
     - platform: event
       event_type: xiaomi_aqara.click
       event_data:
         entity_id: binary_sensor.switch_158d00018392c4
-        click_type: single   
+        click_type: single
   action:
     - service: switch.toggle
       data:
         entity_id: switch.plug_158d00015c77a8
+
+# Kitchen backlight motion sensor
+- id: kitchen_backlight_motion_sensor
+  alias: 'Kitchen backlight motion sensor'
+  trigger:
+    - platform: state
+      entity_id: binary_sensor.motion_sensor_158d00049bab05
+      from: 'off'
+      to: 'on'
+  condition:
+    - condition: state
+      entity_id: sun.sun
+      state: 'below_horizon'
+    - condition: state
+      entity_id: binary_sensor.motion_sensor_158d00049bab05
+      state: 'on'
+    - condition: state
+      entity_id: switch.plug_158d00015c77a8
+      state: 'off'
+  action:
+    - service: switch.toggle
+      data:
+        entity_id: switch.plug_158d00015c77a8
+
+# Kitchen backlight motion sensor
+- id: kitchen_backlight_motion_sensor_off
+  alias: 'Kitchen backlight motion sensor off'
+  trigger:
+    - platform: state
+      entity_id: binary_sensor.motion_sensor_158d00049bab05
+      from: 'on'
+      to: 'off'
+  condition:
+    - condition: state
+      entity_id: sun.sun
+      state: 'below_horizon'
+    - condition: state
+      entity_id: binary_sensor.motion_sensor_158d00049bab05
+      state: 'off'
+    - condition: state
+      entity_id: switch.plug_158d00015c77a8
+      state: 'on'
+  action:
+    - service: switch.toggle
+      data:
+        entity_id: switch.plug_158d00015c77a8
+
 
 # Night light turn on
 - id: night_light_turn_on
@@ -32,6 +79,7 @@
       entity_id: light.gateway_light_34ce0082a52d
       data:
         brightness_pct: 30
+        transition: 180
         color_name: 'orange'
 
 # Night light turn off
@@ -51,4 +99,4 @@
       state: 'off'
   action:
     - service: light.turn_off
-      entity_id: light.gateway_light_34ce0082a52d    
+      entity_id: light.gateway_light_34ce0082a52d

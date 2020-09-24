@@ -1,14 +1,52 @@
-media_player.bedroom_tv:
-    friendly_name: 'Bedroom TV'
+
+# Kitchen
 binary_sensor.switch_158d00018392c4:
-    friendly_name: 'Kitchen backlight switch'
+    friendly_name: 'Kitchen light switch'
+sensor.battery_158d00018392c4:
+    friendly_name: 'Kitchen light switch battery'
+
+binary_sensor.motion_sensor_158d00049bab05:
+    friendly_name: 'Kitchen motion sensor'
+sensor.battery_158d00049bab05:
+    friendly_name: 'Kitchen motion sensor battery'
+
+sensor.humidity_158d00045ad9cd:
+    friendly_name: 'Kitchen humidity'
+sensor.temperature_158d00045ad9cd:
+    friendly_name: 'Kitchen temperature'
+sensor.battery_158d00045ad9cd:
+    friendly_name: 'Kitchen humidity / temperature battery'
+
 switch.plug_158d00015c77a8:
-    friendly_name: 'Kichen backlight'
+    friendly_name: 'Kichen backlight outlet'
+
+# Bedroom
+media_player.bedroom_tv:
+  friendly_name: 'Bedroom TV'
 sensor.temperature_158d00019cf3f2:
-    friendly_name: 'Bedroom temperature'
+  friendly_name: 'Bedroom temperature'
 sensor.humidity_158d00019cf3f2:
-    friendly_name: 'Bedroom humidity'
+  friendly_name: 'Bedroom humidity'
+sensor.battery_158d00019cf3f2:
+  friendly_name: 'Bedroom humidity / temperature battery'
+
+# Hallway
+binary_sensor.door_window_sensor_158d0001214573:
+    friendly_name: 'Front door sensor'
+    device_class: door
+sensor.battery_158d0001214573:
+    friendly_name: 'Front door sensor battery'
+
+binary_sensor.motion_sensor_158d00015a9c49:
+    friendly_name: 'Hallway motion sensor'
+sensor.battery_158d00015a9c49:
+    friendly_name: 'Hallway motion sensor battery'
+
+light.gateway_light_34ce0082a52d:
+    friendly_name: 'Hallway gateway light'
+sensor.illumination_34ce0082a52d:
+    friendly_name: 'Hallway gateway illumintaion sensor'
+
+# Outdoor
 sensor.owm_humidity:
     friendly_name: 'Outdoor humidity'
-light.gateway_light_34ce0082a52d:
-    friendly_name: 'Gateway backlight'
