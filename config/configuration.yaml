@@ -9,17 +9,16 @@ homeassistant:
 
 default_config:
 discovery:
-tts:
-  - platform: google_translate
 
-xiaomi_aqara:
-  key: !secret xiaomi_gateway_token  
+xiaomi_miio:
+  host: !secret xiaomi_gateway_host
+  token: !secret xiaomi_gateway_token
 
 wake_on_lan:
 
 webostv:
   host: !secret bedroom_tv_host
-  name: bedroom_tv
+  name: Bedroom TV
   turn_on_action:
     service: wake_on_lan.send_magic_packet
     data:
@@ -33,12 +32,64 @@ media_player:
 # Does not work on tvOS 13 at the moment
 # https://community.home-assistant.io/t/apple-tv-component-does-not-work-on-tvos-13/120682/40
 apple_tv:
-       
+
 notify:
 
 cloud:
 
-homekit:    
+homekit:
+  auto_start: true
+  port: 51827
+  name: Home Assistant Bridge
+  safe_mode: false
+  filter:
+    exclude_domains:
+      - automation
+      - person
+    exclude_entities:
+      - binary_sensor.updater
+  #   include_entities:
+  #     switch.plug_158d00015c77a8
+  #     sensor.humidity_158d00019cf3f2
+  #     sensor.temperature_158d00019cf3f2
+  entity_config:
+    # Kitchen
+    switch.plug_158d00015c77a8:
+      name: Backlight outlet
+      type: outlet
+    binary_sensor.switch_158d00018392c4:
+      name: Backlight switch
+      linked_battery_sensor: sensor.battery_158d00018392c4
+    binary_sensor.motion_sensor_158d00049bab05:
+      name: 'Kitchen motion sensor'
+      linked_battery_sensor: sensor.battery_158d00049bab05
+    sensor.humidity_158d00045ad9cd:
+      name: 'Kitchen humidity'
+      linked_battery_sensor: sensor.battery_158d00045ad9cd
+    sensor.temperature_158d00045ad9cd:
+      name: 'Kitchen temperature'
+      linked_battery_sensor: sensor.battery_158d00045ad9cd
+    # Bedroom
+    sensor.humidity_158d00019cf3f2:
+      name: Humidity
+      linked_battery_sensor: sensor.battery_158d00019cf3f2
+    sensor.temperature_158d00019cf3f2:
+      name: Temerature
+      linked_battery_sensor: sensor.battery_158d00019cf3f2
+    binary_sensor.door_window_sensor_158d0001214573:
+      name: Front door
+      linked_battery_sensor: sensor.battery_158d0001214573
+    binary_sensor.motion_sensor_158d00015a9c49:
+      name: Motion sensor
+      linked_battery_sensor: sensor.battery_158d00015a9c49
+    media_player.bedroom_tv:
+      name: TV
+      feature_list:
+        - feature: on_off
+        - feature: play_pause
+        - feature: play_stop
+        - feature: toggle_mute
+
 
 speedtestdotnet:
   scan_interval:
